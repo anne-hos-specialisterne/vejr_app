@@ -1,11 +1,8 @@
 import os
-import sys
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-from src.vejrdata.api_clients.dmi_api import DMI_API
-from src.vejrdata.transformers.transform_data import transform_dmi
-from src.vejrdata.db_utils.postgres_db import insert_request_info_in_db, append_df_to_postgres
+from src.api_clients.dmi_api import DMI_API
+from src.transformers.transform_data import transform_dmi
+from src.db_utils.postgres_db import insert_request_info_in_db, append_df_to_postgres
 
 
 def dmi_pipeline(timefrom, parameter, location, conn):
