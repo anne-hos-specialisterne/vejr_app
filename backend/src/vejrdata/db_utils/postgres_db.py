@@ -1,21 +1,12 @@
-
-import os
-from dotenv import load_dotenv
-from pathlib import Path
 import psycopg2
 from psycopg2.extras import execute_values
-
-project_root = Path(__file__).resolve().parents[4]
-print(project_root)
-
-envpath = os.path.join(project_root, '.env')
-
-load_dotenv(dotenv_path=envpath)
+from datetime import datetime
 
 
 class PostgresDB:
     def __init__(self, db_config):
         self.db_config = db_config
+        print(self.db_config)
 
     def get_connection(self):
         """
@@ -36,6 +27,25 @@ class PostgresDB:
             raise
 
 
+
+def insert_request_info_in_db(df, conn):
+
+    rows = len(df)
+
+    query = f"""INSERT INTO request (request_timestamp, recordcount)
+            VALUES (%s, %s)
+            RETURNING id;
+            """
+    
+    cur = conn.cursor()
+
+    now = datetime.now()#.strftime("%Y-%m-%d %H:%M:%S")
+    
+    cur.execute(query, (now, rows))
+    new_id = cur.fetchone()[0]
+   
+    conn.commit()
+    return new_id
 
 def append_df_to_postgres(df, table_name, conn):
     """
@@ -59,9 +69,12 @@ def append_df_to_postgres(df, table_name, conn):
 
     values = [tuple(x) for x in df.to_numpy()]
 
+    #print(values)
+
     query = f"""
         INSERT INTO {table_name} ({columns})
         VALUES %s
+        ON CONFLICT ON CONSTRAINT uq_observation DO NOTHING
     """
 
     with conn.cursor() as cur:
