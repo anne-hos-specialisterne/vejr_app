@@ -7,7 +7,7 @@ FROM python:3.13
 WORKDIR /backend
 
 # add src to pythonpath
-ENV PYTHONPATH=/backend/src
+ENV PYTHONPATH=/backend/
 
 # Copy project files
 COPY . .

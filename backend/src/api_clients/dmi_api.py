@@ -1,5 +1,5 @@
 
-from src.vejrdata.api_clients.base import BaseAPIClient
+from src.api_clients.base import BaseAPIClient
 
 
 class DMI_API(BaseAPIClient):
