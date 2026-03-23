@@ -37,19 +37,19 @@ def transform_spac(api_out_json):
 
 
 
-def transform_dmi(api_out_json):
+def transform_dmi(pydantic_data):
     ''' function specific to data from DMI api'''
 
     df = pd.DataFrame(columns = ['source_id', 'location_code', 'observation_type', 'observation_time', 'observation_value'])
 
-    for r in api_out_json['features']:
+    for r in pydantic_data.features:
 
         dict = {}
-        dict['source_id'] = r['id']
-        dict['location_code'] = r['properties']['stationId']
-        dict['observation_type'] = r['properties']['parameterId']
-        dict['observation_time'] = r['properties']['observed']
-        dict['observation_value'] = r['properties']['value']
+        dict['source_id'] = r.id
+        dict['location_code'] = r.properties.stationId
+        dict['observation_type'] = r.properties.parameterId 
+        dict['observation_time'] = r.properties.observed 
+        dict['observation_value'] = r.properties.value
 
         temp = pd.DataFrame(dict, index = [0])
 
