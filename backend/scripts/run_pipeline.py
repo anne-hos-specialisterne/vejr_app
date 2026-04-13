@@ -65,7 +65,7 @@ async def main():
         dmi_humidity(data_from=data_from, data_id=data_id, conn=conn),
         dmi_pressure(data_from=data_from, data_id=data_id, conn=conn),
         dmi_temp(data_from=data_from, data_id=data_id, conn=conn),
-        spac(data_from=data_from, conn=conn)
+        #spac(data_from=data_from, conn=conn)
     )
 
     conn.close()

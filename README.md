@@ -33,6 +33,10 @@ docker compose up
 
 You can change date and other parameters in the "run_pipeline.py" file inside the "scripts" folder
 
+## code archtecture
+
+![code diagram](./diagram.svg)
+
 ## Authors
 
 Anne Schmidt
