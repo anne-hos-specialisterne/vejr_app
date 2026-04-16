@@ -22,3 +22,6 @@
 2026-04-16 10:45:23,818 | INFO | src.api_clients.base | API GET https://opendataapi.dmi.dk/v2/metObs/collections/observation/items -> 200
 2026-04-16 10:45:28,716 | INFO | src.api_clients.base | API GET https://opendataapi.dmi.dk/v2/metObs/collections/observation/items -> 200
 2026-04-16 10:45:29,752 | INFO | src.api_clients.base | API GET https://opendataapi.dmi.dk/v2/metObs/collections/observation/items -> 200
+2026-04-16 10:50:06,886 | INFO | src.api_clients.base | API GET https://opendataapi.dmi.dk/v2/metObs/collections/observation/items -> 200
+2026-04-16 10:50:07,304 | INFO | src.api_clients.base | API GET https://opendataapi.dmi.dk/v2/metObs/collections/observation/items -> 200
+2026-04-16 10:50:07,711 | INFO | src.api_clients.base | API GET https://opendataapi.dmi.dk/v2/metObs/collections/observation/items -> 200

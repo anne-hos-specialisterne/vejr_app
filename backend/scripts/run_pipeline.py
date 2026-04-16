@@ -4,7 +4,7 @@ import asyncio
 from datetime import datetime
 import time
 
-
+'''
 from dotenv import load_dotenv
 from pathlib import Path
 import os
@@ -31,10 +31,12 @@ DB_CONFIG = {
 }
 
 #print(DB_CONFIG)
-from backend.scripts.dmi_pipeline import dmi_pipeline
+
+'''
+from scripts.dmi_pipeline import dmi_pipeline
 #from backend.scripts.spac_pipeline import spac_pipeline
 
-from backend.src.db_utils.postgres_db import PostgresDB
+from src.db_utils.postgres_db import PostgresDB
 
 
 async def dmi_humidity(data_from, data_id, conn, stop_event):
@@ -73,7 +75,7 @@ async def spac(data_from, conn):
 
 async def run_data_fetch(stop_event):
     #print('this is my weather app')
-    '''
+    
     DB_CONFIG = {
         "host": os.getenv("DB_HOST"),
         "port": int(os.getenv("DB_PORT")),
@@ -82,7 +84,7 @@ async def run_data_fetch(stop_event):
         "password": os.getenv("DB_PASSWORD"),
     }
     
-    '''
+    
     
     # variables from user:
     data_from = '2026-03-13T00:00:00Z'

@@ -1,5 +1,5 @@
  async function loadData() {
-    const response = await fetch("http://localhost:8000/data");
+    const response = await fetch("http://localhost:5000/data");
     const data = await response.json();
 
     const times = data.map(d => d[5]);

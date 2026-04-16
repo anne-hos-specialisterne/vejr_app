@@ -6,8 +6,8 @@ import time
 from datetime import datetime
 import asyncio
 
-from backend.scripts.run_pipeline import run_data_fetch
-from backend.src.display_data.api_server import get_observation
+from scripts.run_pipeline import run_data_fetch
+from src.display_data.api_server import get_observation
 
 app = FastAPI()
 

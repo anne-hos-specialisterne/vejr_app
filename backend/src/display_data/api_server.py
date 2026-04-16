@@ -1,8 +1,8 @@
-
-
+import os
+'''
 from dotenv import load_dotenv
 from pathlib import Path
-import os
+
 import sys
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -24,8 +24,20 @@ DB_CONFIG = {
     "user": os.environ.get("DB_USER"),
     "password": os.environ.get("DB_PASSWORD"),
 }
+'''
+
+from src.db_utils.postgres_db import PostgresDB
 
 def get_observation():
+
+    DB_CONFIG = {
+        "host": os.getenv("DB_HOST"),
+        "port": int(os.getenv("DB_PORT")),
+        "dbname": os.getenv("DB_NAME"),
+        "user": os.getenv("DB_USER"),
+        "password": os.getenv("DB_PASSWORD"),
+        }
+
     db = PostgresDB(db_config = DB_CONFIG)
 
 
