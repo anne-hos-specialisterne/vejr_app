@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 1fr;
+    height: 100vh;
+    gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.box {
+    border: 1px solid forestgreen ;
+    padding: 10px;
+    border-radius: 8px;
+    background: #f9f9f9;
+    overflow: auto;
+}
+
+.top-left {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.bottom-left {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.right {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+}
+
+/* Make chart fill the space */
+.right canvas {
+    width: 100% !important;
+    height: 90% !important;
+}
+
+button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background: #064206;
+    color: white;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background: #0e910e;
+}

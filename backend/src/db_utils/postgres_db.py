@@ -6,7 +6,6 @@ from datetime import datetime
 class PostgresDB:
     def __init__(self, db_config):
         self.db_config = db_config
-        print(self.db_config)
 
     def get_connection(self):
         """

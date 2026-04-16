@@ -18,7 +18,7 @@ def setup_logger(name=None, level=logging.INFO):
         stream_handler.setLevel(level)
 
         # Optional: file handler
-        file_handler = logging.FileHandler("logs/app.log")
+        file_handler = logging.FileHandler("backend/logs/app.log")
         file_handler.setLevel(level)
 
         # Log format

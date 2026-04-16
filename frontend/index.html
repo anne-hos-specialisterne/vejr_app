@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather data ETL project</title>
+
+    <link rel="stylesheet" href="style.css"> 
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <script src="scripts/plot.js" defer></script>
+    <script src="scripts/etl_controls.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="box top-left">
+            <h3>Controls</h3>
+            <input type="text" id="startTime" placeholder="e.g. 2026-03-31">
+            <button id="startETL"> Start ETL </button>
+            <button id="stopETL"> Stop </button>
+            <button id="clear_db"> Clear data </button>
+            <button id="resumeETL"> Resume </button>
+        </div>
+
+        <div class="box bottom-left">
+            <h3>Info</h3>
+            <label for="note">Note:</label>
+            <input type="text" id="note" placeholder="Enter a note">
+        </div>
+
+        <div class="box right">
+            <h3>Chart</h3>
+            <div id="plot" style="width:100%; height:100%;"></div>
+        </div>
+    </div>
+    
+</body>
+</html>
