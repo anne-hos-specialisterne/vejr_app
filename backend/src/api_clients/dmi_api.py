@@ -8,4 +8,3 @@ class DMI_API(BaseAPIClient):
         super().__init__(
             base_url="https://opendataapi.dmi.dk/v2"
         )
-

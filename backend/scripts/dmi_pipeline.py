@@ -1,5 +1,6 @@
 import os
 import json
+from datetime import datetime
 
 from src.api_clients.dmi_api import DMI_API
 from src.api_data_validation.schemas import DMIdata
@@ -7,12 +8,22 @@ from src.transformers.transform_data import transform_dmi
 from src.db_utils.postgres_db import insert_request_info_in_db, append_df_to_postgres
 
 
+def fetch_initial(start_time):
+    print(datetime.strptime(start_time))
+
+
 def dmi_pipeline(timefrom, parameter, location, conn):
 
     # fetch data from DMI API
-    time_from = timefrom + '/..'
+    time_from = timefrom + '/' + '2026-04-15T00:00:00Z'
+    print(time_from)
+    #time_from = timefrom + '/..'
     dmi_api = DMI_API()
-    res_json = dmi_api.get('/metObs/collections/observation/items', params={'datetime':time_from, 'parameterId': parameter, 'stationId':location, 'limit': 2})
+
+    start_time = '2026-04-15'
+    #fetch_initial(start_time=start_time)
+
+    res_json = dmi_api.get('/metObs/collections/observation/items', params={'datetime':time_from, 'parameterId': parameter, 'stationId':location})
     #print(json.dumps(res_json, indent = 4))
 
     data = DMIdata.model_validate(res_json)

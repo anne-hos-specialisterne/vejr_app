@@ -8,6 +8,7 @@ import asyncio
 
 from scripts.run_pipeline import run_data_fetch
 from src.display_data.api_server import get_observation
+from src.db_utils.clear_db import clear_observations
 
 app = FastAPI()
 
@@ -24,11 +25,13 @@ app.add_middleware(
 worker_thread = None
 stop_event = threading.Event()
 
+start_time = '2026-03-10T00:00:00Z'
+
 
 # define data fetch function
 def etl_worker():
     print("worker started")
-    asyncio.run(run_data_fetch(stop_event))
+    asyncio.run(run_data_fetch(stop_event, start_time))
     print("worker stopped")
 
 
@@ -74,6 +77,7 @@ def resume_etl():
 @app.get("/clear-db")
 def clear_db():
 
-    # run your python logic here
+    clear = clear_observations()
+    print(clear)
     result = {"message": "All data removed!", "value": 100}
     return result

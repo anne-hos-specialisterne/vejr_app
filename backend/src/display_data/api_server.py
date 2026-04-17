@@ -45,7 +45,7 @@ def get_observation():
     cur = conn.cursor()
 
     try: 
-        cur.execute("SELECT * FROM observation LIMIT 20")
+        cur.execute("SELECT * FROM observation")
         res = cur.fetchall()
     finally:
         if cur:

@@ -73,7 +73,7 @@ async def spac(data_from, conn):
         await asyncio.sleep(120)
 '''
 
-async def run_data_fetch(stop_event):
+async def run_data_fetch(stop_event, date_from):
     #print('this is my weather app')
     
     DB_CONFIG = {
@@ -87,7 +87,7 @@ async def run_data_fetch(stop_event):
     
     
     # variables from user:
-    data_from = '2026-03-13T00:00:00Z'
+    data_from = date_from
     data_id = '06181' # data id is station id for dmi data
 
     db = PostgresDB(DB_CONFIG)
@@ -96,8 +96,8 @@ async def run_data_fetch(stop_event):
     
     await asyncio.gather(
         dmi_humidity(data_from=data_from, data_id=data_id, conn=conn, stop_event=stop_event),
-        dmi_pressure(data_from=data_from, data_id=data_id, conn=conn, stop_event=stop_event),
-        dmi_temp(data_from=data_from, data_id=data_id, conn=conn, stop_event=stop_event),
+        #dmi_pressure(data_from=data_from, data_id=data_id, conn=conn, stop_event=stop_event),
+        #dmi_temp(data_from=data_from, data_id=data_id, conn=conn, stop_event=stop_event),
         #spac(data_from=data_from, conn=conn)
     )
 
